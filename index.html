@@ -4,34 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chinmaya Samal - Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Google Fonts - Inter (default body), Poppins (headers), Lato (project titles), Open Sans (descriptions) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lato:wght@400;700&family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- DotLottie Player Component CDN -->
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <style>
+        /* Custom CSS for animations and overrides */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a202c;
-            color: #e2e8f0;
-            overflow-x: hidden;
+            background-color: #1a202c; /* Dark background for the body */
+            color: #e2e8f0; /* Light gray text for contrast */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
+        /* Custom scrollbar for dark theme */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #2d3748; 
+            background: #2d3748; /* Darker track */
         }
         ::-webkit-scrollbar-thumb {
-            background: #4a5568; 
+            background: #4a5568; /* Dark thumb */
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #718096; 
+            background: #718096; /* Lighter thumb on hover */
         }
 
-        
+        /* Section animation classes */
         .section-hidden {
             opacity: 0;
             transform: translateY(50px);
@@ -43,7 +48,7 @@
             transform: translateY(0);
         }
 
-        
+        /* Hero section specific animation */
         .hero-text-hidden {
             opacity: 0;
             transform: translateX(-50px);
@@ -66,38 +71,41 @@
             transform: translateX(0);
         }
 
-        
+        /* Button hover effect */
         .btn-primary {
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .btn-primary:hover {
-            background-color: #2563eb; 
+            background-color: #2563eb; /* Darker blue */
             transform: translateY(-2px);
         }
 
-        
+        /* Card hover effect */
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Darker shadow */
         }
-   
+
+        /* Project image hover effect */
         .project-image {
             transition: transform 0.3s ease;
         }
         .project-image:hover {
             transform: scale(1.05);
         }
+
+        /* Responsive Navbar */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background-color: #2d3748; 
+                background-color: #2d3748; /* Darker background for mobile menu */
                 position: absolute;
-                top: 64px; 
+                top: 64px; /* Height of the navbar */
                 left: 0;
                 z-index: 10;
                 border-radius: 0 0 10px 10px;
@@ -117,33 +125,40 @@
                 display: block;
             }
         }
+
+        /* New Font Styles */
+        /* Main section headers */
         #about h2, #skills h2, #projects h2, #contact h2 {
             font-family: 'Poppins', sans-serif;
         }
 
+        /* About Me paragraph text */
         #about .about-text {
             font-family: 'Open Sans', sans-serif;
         }
 
+        /* Project titles */
         .project-title {
             font-family: 'Lato', sans-serif;
         }
 
+        /* Project descriptions */
         .project-description {
             font-family: 'Open Sans', sans-serif;
         }
 
+        /* Styling for the dotlottie-player */
         #lottie-animation-container {
-            width: 64h;
-            height: 64h;
-            max-width: 384px;
-            max-height: 384px;
+            width: 64h; /* Adjusted for responsiveness */
+            height: 64h; /* Adjusted for responsiveness */
+            max-width: 384px; /* md:w-96 */
+            max-height: 384px; /* md:h-96 */
             margin-left: auto;
             margin-right: auto;
-            border-radius: 9999px;
+            border-radius: 9999px; /* rounded-full */
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border: 4px solid #4a5568;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+            border: 4px solid #4a5568; /* border-gray-700 */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -152,18 +167,39 @@
         #lottie-animation-container dotlottie-player {
             width: 100%;
             height: 100%;
-            display: block;
+            display: block; /* Ensure it takes up full space */
         }
+
+        /* Skill icon hover animation */
         .card i {
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* Smooth transition for icon */
         }
 
         .card:hover i {
-            transform: scale(1.1);
+            transform: scale(1.1); /* Scale up icon on hover */
+        }
+
+        /* Projects Section Horizontal Scroll */
+        .projects-scroll-container {
+            -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+
+        .projects-scroll-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        /* Ensure cards have a defined width and don't shrink for horizontal scroll */
+        .projects-scroll-container .card {
+            min-width: 320px; /* Tailwind's w-80 is 320px */
+            flex-shrink: 0; /* Prevent cards from shrinking */
         }
     </style>
 </head>
 <body class="leading-relaxed">
+
+    <!-- Navigation Bar -->
     <nav class="bg-gray-900 p-4 shadow-lg fixed w-full z-20 top-0">
         <div class="container mx-auto flex justify-between items-center px-4 md:px-0">
             <a href="#home" class="text-white text-xl md:text-2xl font-bold rounded-md p-2 hover:bg-gray-700 transition duration-300">Chinmaya Samal</a>
@@ -190,6 +226,7 @@
                     <a href="#projects" class="btn-primary bg-blue-600 text-white px-8 py-4 rounded-full text-lg md:text-xl font-semibold shadow-lg hover:bg-blue-700 inline-block">View My Work <i class="fas fa-arrow-right ml-2"></i></a>
                 </div>
                 <div class="mt-8 md:mt-0 animate-on-load hero-image-hidden">
+                    <!-- DotLottie Player Component -->
                     <div id="lottie-animation-container">
                         <dotlottie-player src="https://lottie.host/a78cc80b-849c-4814-8aeb-e32da7915560/9X67Fz120v.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
                     </div>
@@ -265,10 +302,11 @@
         <section id="projects" class="py-16 px-4 bg-gray-800 section-hidden">
             <div class="container mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-white">My Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-                    <!-- Project Card 1 -->
-                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left">
-                        <img src="assests/project1.jpg" alt="Earning App" class="w-full h-56 object-cover project-image">
+                <!-- Projects Container for Horizontal Scroll -->
+                <div id="projects-container-scroll" class="flex overflow-x-auto pb-4 space-x-8 lg:max-w-6xl mx-auto px-4 sm:px-0 projects-scroll-container">
+                    <!-- Project Card 1: Earning App -->
+                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left w-80">
+                        <img src="assets/project1.jpg" alt="Earning App" class="w-full h-56 object-cover project-image">
                         <div class="p-6">
                             <h3 class="text-xl md:text-2xl font-bold text-white project-title mb-3">FlypCoin Earning App</h3>
                             <p class="text-base md:text-lg text-gray-300 project-description mb-4">A mobile earning application designed for users to complete tasks, surveys, and referrals to earn rewards. Features a spin wheel and various redemption options.</p>
@@ -281,7 +319,7 @@
                         </div>
                     </div>
                     <!-- Project Card 2 -->
-                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left">
+                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left w-80">
                         <img src="https://placehold.co/600x400/2196F3/ffffff?text=Project+2" alt="Project 2" class="w-full h-56 object-cover project-image">
                         <div class="p-6">
                             <h3 class="text-xl md:text-2xl font-bold text-white project-title mb-3">Task Management App</h3>
@@ -295,7 +333,7 @@
                         </div>
                     </div>
                     <!-- Project Card 3 -->
-                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left">
+                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left w-80">
                         <img src="https://placehold.co/600x400/FFC107/ffffff?text=Project+3" alt="Project 3" class="w-full h-56 object-cover project-image">
                         <div class="p-6">
                             <h3 class="text-xl md:text-2xl font-bold text-white project-title mb-3">Personal Blog Site</h3>
@@ -308,20 +346,43 @@
                             <a href="#" class="text-blue-400 hover:underline font-semibold text-sm md:text-base" target="_blank" rel="noopener noreferrer">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
                         </div>
                     </div>
-                    <!-- Project Card 4 -->
-                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left">
-                        <img src="assests/project1.jpg" alt="E-Commerce Platform" class="w-full h-56 object-cover project-image">
+                    <!-- Project Card 4 (Example) -->
+                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left w-80">
+                        <img src="https://placehold.co/600x400/FF5733/ffffff?text=Project+4" alt="Project 4" class="w-full h-56 object-cover project-image">
                         <div class="p-6">
-                            <h3 class="text-xl md:text-2xl font-bold text-white project-title mb-3">E-Commerce Platform</h3>
-                            <p class="text-base md:text-lg text-gray-300 project-description mb-4">An Online E-Commerce Platform To Buy/Sell Source Codes from Individual Developers / Organizations</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-white project-title mb-3">Portfolio Website</h3>
+                            <p class="text-base md:text-lg text-gray-300 project-description mb-4">A modern and responsive personal portfolio website showcasing skills, projects, and contact information.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-600 text-white text-sm font-medium px-3 py-1 rounded-full">Web Platform</span>
-                                <span class="bg-gray-600 text-white text-sm font-medium px-3 py-1 rounded-full">Php</span>
-                                <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full">Online Store</span>
+                                <span class="bg-red-600 text-white text-sm font-medium px-3 py-1 rounded-full">HTML</span>
+                                <span class="bg-blue-600 text-white text-sm font-medium px-3 py-1 rounded-full">Tailwind CSS</span>
+                                <span class="bg-yellow-600 text-white text-sm font-medium px-3 py-1 rounded-full">JavaScript</span>
                             </div>
                             <a href="#" class="text-blue-400 hover:underline font-semibold text-sm md:text-base" target="_blank" rel="noopener noreferrer">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
                         </div>
                     </div>
+                    <!-- Project Card 5 (Example - triggers "See All" button) -->
+                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left w-80">
+                        <img src="https://placehold.co/600x400/8A2BE2/ffffff?text=Project+5" alt="Project 5" class="w-full h-56 object-cover project-image">
+                        <div class="p-6">
+                            <h3 class="text-xl md:text-2xl font-bold text-white project-title mb-3">Mobile Game Dev</h3>
+                            <p class="text-base md:text-lg text-gray-300 project-description mb-4">Developed a casual mobile game with engaging mechanics and intuitive controls, optimized for performance.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full">Unity</span>
+                                <span class="bg-pink-600 text-white text-sm font-medium px-3 py-1 rounded-full">C#</span>
+                                <span class="bg-teal-600 text-white text-sm font-medium px-3 py-1 rounded-full">Game Design</span>
+                            </div>
+                            <a href="#" class="text-blue-400 hover:underline font-semibold text-sm md:text-base" target="_blank" rel="noopener noreferrer">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- See All Button Container -->
+                <div id="see-all-projects-container" class="mt-8 flex justify-center hidden">
+                    <a href="#" class="flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white text-3xl transition-all duration-300 group-hover:bg-blue-700 group-hover:scale-110">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <span class="mt-2 text-blue-400 text-lg font-semibold group-hover:underline">See All</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -333,6 +394,7 @@
                 <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
                     <p class="text-base md:text-lg text-gray-300 mb-8">Have a question or want to work together? Feel free to reach out!</p>
                     <form id="contact-form" class="space-y-6">
+                        <!-- Formspree hidden input for reply-to functionality -->
                         <input type="hidden" name="_replyto" value="infotek.rlp@gmail.com">
                         <div>
                             <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-4 border border-gray-600 bg-gray-700 text-base md:text-lg text-white rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
@@ -363,12 +425,14 @@
     </footer>
 
     <script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                // Close mobile menu if open
                 const navLinks = document.getElementById('nav-links');
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
@@ -376,6 +440,7 @@
             });
         });
 
+        // Hamburger menu functionality for mobile
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const navLinks = document.getElementById('nav-links');
 
@@ -383,12 +448,13 @@
             navLinks.classList.toggle('active');
         });
 
+        // Intersection Observer for section animations
         const sections = document.querySelectorAll('section');
 
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.2
+            threshold: 0.2 // Trigger when 20% of the section is visible
         };
 
         const sectionObserver = new IntersectionObserver((entries, observer) => {
@@ -396,16 +462,20 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.remove('section-hidden');
                     entry.target.classList.add('section-visible');
+                    // No need to unobserve if you want the animation to replay on subsequent scrolls
+                    // If you only want it to animate once, uncomment the line below:
                     // observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         sections.forEach(section => {
+            // Ensure the 'contact' section also gets the initial hidden class
             section.classList.add('section-hidden');
             sectionObserver.observe(section);
         });
 
+        // Specific animation for Hero section elements on load
         window.addEventListener('load', () => {
             const heroText = document.querySelector('.hero-text-hidden');
             const heroImage = document.querySelector('.hero-image-hidden');
@@ -419,11 +489,24 @@
                 heroImage.classList.add('hero-image-visible');
             }
 
+            // Start autotype effect after initial hero animation
             setTimeout(() => {
                 autotypeLoop('autotype-name', 'Chinmaya Samal', 100, 50, 1500); // Type speed, Delete speed, Delay between cycles
-            }, 1000);
+            }, 1000); // Delay before starting autotype
+
+            // Project "See All" button logic on load
+            const projectsContainer = document.getElementById('projects-container-scroll');
+            const seeAllButtonContainer = document.getElementById('see-all-projects-container');
+            const projectCards = projectsContainer.querySelectorAll('.card');
+
+            if (projectCards.length > 4) {
+                seeAllButtonContainer.classList.remove('hidden');
+            } else {
+                seeAllButtonContainer.classList.add('hidden');
+            }
         });
 
+        // Autotype loop effect function (type, then delete, then repeat)
         function autotypeLoop(elementId, text, typeSpeed, deleteSpeed, delayBetweenCycles) {
             const element = document.getElementById(elementId);
             let i = 0;
@@ -434,31 +517,39 @@
                 element.textContent = currentText;
 
                 if (!isDeleting && i < text.length) {
+                    // Typing
                     i++;
                     setTimeout(type, typeSpeed);
                 } else if (isDeleting && i > 0) {
+                    // Deleting
                     i--;
                     setTimeout(type, deleteSpeed);
                 } else if (!isDeleting && i === text.length) {
+                    // Finished typing, start deleting after a delay
                     isDeleting = true;
                     setTimeout(type, delayBetweenCycles);
                 } else if (isDeleting && i === 0) {
+                    // Finished deleting, start typing again after a delay
                     isDeleting = false;
                     setTimeout(type, delayBetweenCycles);
                 }
             }
-            type();
+            type(); // Start the typing animation
         }
+
+        // Update current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        // Contact Form Submission with Formspree
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
 
         contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default form submission
 
             const formData = new FormData(contactForm);
 
+            // Corrected Formspree endpoint with your provided ID
             const formspreeEndpoint = 'https://formspree.io/f/xdkzvkwe';
 
             try {
@@ -470,12 +561,13 @@
                     }
                 });
 
-                if (response.ok) {
+                if (response.ok) { // Check if the response status is 2xx (e.g., 200 OK)
                     formMessage.classList.remove('hidden', 'text-red-600');
                     formMessage.classList.add('text-green-600');
                     formMessage.textContent = 'Thank you for your message, Chinmaya! I will get back to you soon.';
-                    contactForm.reset();
+                    contactForm.reset(); // Clear the form on success
                 } else {
+                    // Handle errors (e.g., Formspree validation errors)
                     const errorData = await response.json();
                     let errorMessage = 'Oops! There was a problem submitting your form.';
                     if (errorData.errors && errorData.errors.length > 0) {
@@ -491,6 +583,8 @@
                 formMessage.classList.add('text-red-600');
                 formMessage.textContent = 'Network error. Please try again later.';
             }
+
+            // Hide message after 5 seconds
             setTimeout(() => {
                 formMessage.classList.add('hidden');
             }, 5000);
