@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website!  
 This site showcases my projects, skills, and background in web development, app development, and AI.
 
-🔗 **Live Site**: [https://earnchamp.github.io/portfolio/](https://earnchamp.github.io/portfolio/)
+🔗 **Live Site**: [https://earnchamp.github.io/portfolio/](https://earnchamp.github.io/Chinmaya-portfolio/)
 
 ---
 
