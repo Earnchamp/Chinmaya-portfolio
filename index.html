@@ -355,11 +355,7 @@
                     <div id="form-message" class="mt-6 text-center text-lg font-semibold hidden"></div>
                 </div>
                 <div class="mt-12 flex justify-center space-x-6 text-4xl">
-                    <a href="https://linkedin.com/in/chinmaya775" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition duration-300"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Earnchamp" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-github"></i></a>
-                    <a href="https://telegram.dog/the_rj7" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-telegram"></i></a>
-                    <a href="https://www.instagram.com/_akal.hai_/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:infotek.rlp@gmail.com" class="text-gray-400 hover:text-red-500 transition duration-300"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/chinmaya775" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition duration-300"><i class="fab fa-linkedin"></i></a> <a href="https://github.com/Earnchamp" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-github"></i></a> <a href="https://telegram.dog/the_rj7" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-telegram"></i></a> <a href="https://www.instagram.com/_akal.hai_/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a> <a href="mailto:infotek.rlp@gmail.com" class="text-gray-400 hover:text-red-500 transition duration-300"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </section>
@@ -419,11 +415,12 @@
         }, observerOptions);
 
         sections.forEach(section => {
+            // Ensure the 'contact' section also gets the initial hidden class
             section.classList.add('section-hidden');
             sectionObserver.observe(section);
         });
 
-        
+        // Specific animation for Hero section elements on load
         window.addEventListener('load', () => {
             const heroText = document.querySelector('.hero-text-hidden');
             const heroImage = document.querySelector('.hero-image-hidden');
@@ -437,11 +434,13 @@
                 heroImage.classList.add('hero-image-visible');
             }
 
+            // Start autotype effect after initial hero animation
             setTimeout(() => {
-                autotypeLoop('autotype-name', 'Chinmaya Samal', 100, 50, 1500);
-            }, 1000);
+                autotypeLoop('autotype-name', 'Chinmaya Samal', 100, 50, 1500); // Type speed, Delete speed, Delay between cycles
+            }, 1000); // Delay before starting autotype
         });
 
+        // Autotype loop effect function (type, then delete, then repeat)
         function autotypeLoop(elementId, text, typeSpeed, deleteSpeed, delayBetweenCycles) {
             const element = document.getElementById(elementId);
             let i = 0;
@@ -452,34 +451,40 @@
                 element.textContent = currentText;
 
                 if (!isDeleting && i < text.length) {
+                    // Typing
                     i++;
                     setTimeout(type, typeSpeed);
-                } else if (isDeleting && i > 0){
+                } else if (isDeleting && i > 0) {
+                    // Deleting
                     i--;
                     setTimeout(type, deleteSpeed);
                 } else if (!isDeleting && i === text.length) {
+                    // Finished typing, start deleting after a delay
                     isDeleting = true;
                     setTimeout(type, delayBetweenCycles);
                 } else if (isDeleting && i === 0) {
+                    // Finished deleting, start typing again after a delay
                     isDeleting = false;
                     setTimeout(type, delayBetweenCycles);
                 }
             }
-            type(); 
+            type(); // Start the typing animation
         }
 
+        // Update current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        // Contact Form Submission with Formspree
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
 
         contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default form submission
 
             const formData = new FormData(contactForm);
 
-            
-            const formspreeEndpoint = 'https://formspree.io/f/xdkzvkwe';
+            // Replace 'YOUR_FORMSPREE_FORM_ID' with the actual ID you get from Formspree.io
+            const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID';
 
             try {
                 const response = await fetch(formspreeEndpoint, {
@@ -490,12 +495,13 @@
                     }
                 });
 
-                if (response.ok) {
+                if (response.ok) { // Check if the response status is 2xx (e.g., 200 OK)
                     formMessage.classList.remove('hidden', 'text-red-600');
                     formMessage.classList.add('text-green-600');
                     formMessage.textContent = 'Thank you for your message, Chinmaya! I will get back to you soon.';
-                    contactForm.reset();
+                    contactForm.reset(); // Clear the form on success
                 } else {
+                    // Handle errors (e.g., Formspree validation errors)
                     const errorData = await response.json();
                     let errorMessage = 'Oops! There was a problem submitting your form.';
                     if (errorData.errors && errorData.errors.length > 0) {
@@ -511,6 +517,8 @@
                 formMessage.classList.add('text-red-600');
                 formMessage.textContent = 'Network error. Please try again later.';
             }
+
+            // Hide message after 5 seconds
             setTimeout(() => {
                 formMessage.classList.add('hidden');
             }, 5000);
