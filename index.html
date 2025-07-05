@@ -4,17 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chinmaya Samal - Professional Portfolio</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Google Fonts - Inter (default body), Poppins (headers), Lato (project titles), Open Sans (descriptions) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lato:wght@400;700&family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <!-- DotLottie Player Component CDN -->
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <style>
-        /* Custom CSS for animations and overrides */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #1a202c; /* Dark background for the body */
@@ -22,22 +17,21 @@
             overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-        /* Custom scrollbar for dark theme */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #2d3748; /* Darker track */
+            background: #2d3748; 
         }
         ::-webkit-scrollbar-thumb {
-            background: #4a5568; /* Dark thumb */
+            background: #4a5568; 
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #718096; /* Lighter thumb on hover */
+            background: #718096; 
         }
 
-        /* Section animation classes */
+        
         .section-hidden {
             opacity: 0;
             transform: translateY(50px);
@@ -49,7 +43,7 @@
             transform: translateY(0);
         }
 
-        /* Hero section specific animation */
+        
         .hero-text-hidden {
             opacity: 0;
             transform: translateX(-50px);
@@ -72,41 +66,38 @@
             transform: translateX(0);
         }
 
-        /* Button hover effect */
+        
         .btn-primary {
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .btn-primary:hover {
-            background-color: #2563eb; /* Darker blue */
+            background-color: #2563eb; 
             transform: translateY(-2px);
         }
 
-        /* Card hover effect */
+        
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Darker shadow */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
         }
-
-        /* Project image hover effect */
+   
         .project-image {
             transition: transform 0.3s ease;
         }
         .project-image:hover {
             transform: scale(1.05);
         }
-
-        /* Responsive Navbar */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background-color: #2d3748; /* Darker background for mobile menu */
+                background-color: #2d3748; 
                 position: absolute;
-                top: 64px; /* Height of the navbar */
+                top: 64px; 
                 left: 0;
                 z-index: 10;
                 border-radius: 0 0 10px 10px;
@@ -126,40 +117,33 @@
                 display: block;
             }
         }
-
-        /* New Font Styles */
-        /* Main section headers */
         #about h2, #skills h2, #projects h2, #contact h2 {
             font-family: 'Poppins', sans-serif;
         }
 
-        /* About Me paragraph text */
         #about .about-text {
             font-family: 'Open Sans', sans-serif;
         }
 
-        /* Project titles */
         .project-title {
             font-family: 'Lato', sans-serif;
         }
 
-        /* Project descriptions */
         .project-description {
             font-family: 'Open Sans', sans-serif;
         }
 
-        /* Styling for the dotlottie-player */
         #lottie-animation-container {
-            width: 64h; /* Adjusted for responsiveness */
-            height: 64h; /* Adjusted for responsiveness */
-            max-width: 384px; /* md:w-96 */
-            max-height: 384px; /* md:h-96 */
+            width: 64h;
+            height: 64h;
+            max-width: 384px;
+            max-height: 384px;
             margin-left: auto;
             margin-right: auto;
-            border-radius: 9999px; /* rounded-full */
+            border-radius: 9999px;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
-            border: 4px solid #4a5568; /* border-gray-700 */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 4px solid #4a5568;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -168,22 +152,18 @@
         #lottie-animation-container dotlottie-player {
             width: 100%;
             height: 100%;
-            display: block; /* Ensure it takes up full space */
+            display: block;
         }
-
-        /* Skill icon hover animation */
         .card i {
-            transition: transform 0.3s ease; /* Smooth transition for icon */
+            transition: transform 0.3s ease;
         }
 
         .card:hover i {
-            transform: scale(1.1); /* Scale up icon on hover */
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body class="leading-relaxed">
-
-    <!-- Navigation Bar -->
     <nav class="bg-gray-900 p-4 shadow-lg fixed w-full z-20 top-0">
         <div class="container mx-auto flex justify-between items-center px-4 md:px-0">
             <a href="#home" class="text-white text-xl md:text-2xl font-bold rounded-md p-2 hover:bg-gray-700 transition duration-300">Chinmaya Samal</a>
@@ -210,7 +190,6 @@
                     <a href="#projects" class="btn-primary bg-blue-600 text-white px-8 py-4 rounded-full text-lg md:text-xl font-semibold shadow-lg hover:bg-blue-700 inline-block">View My Work <i class="fas fa-arrow-right ml-2"></i></a>
                 </div>
                 <div class="mt-8 md:mt-0 animate-on-load hero-image-hidden">
-                    <!-- DotLottie Player Component -->
                     <div id="lottie-animation-container">
                         <dotlottie-player src="https://lottie.host/a78cc80b-849c-4814-8aeb-e32da7915560/9X67Fz120v.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
                     </div>
@@ -329,6 +308,20 @@
                             <a href="#" class="text-blue-400 hover:underline font-semibold text-sm md:text-base" target="_blank" rel="noopener noreferrer">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
                         </div>
                     </div>
+                    <!-- Project Card 4 -->
+                    <div class="card bg-gray-700 rounded-lg shadow-lg overflow-hidden text-left">
+                        <img src="assests/project1.jpg" alt="E-Commerce Platform" class="w-full h-56 object-cover project-image">
+                        <div class="p-6">
+                            <h3 class="text-xl md:text-2xl font-bold text-white project-title mb-3">E-Commerce Platform</h3>
+                            <p class="text-base md:text-lg text-gray-300 project-description mb-4">An Online E-Commerce Platform To Buy/Sell Source Codes</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-600 text-white text-sm font-medium px-3 py-1 rounded-full">Web Platform</span>
+                                <span class="bg-grey-600 text-white text-sm font-medium px-3 py-1 rounded-full">Php</span>
+                                <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full">UI/UX Design</span>
+                            </div>
+                            <a href="#" class="text-blue-400 hover:underline font-semibold text-sm md:text-base" target="_blank" rel="noopener noreferrer">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -371,14 +364,12 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                // Close mobile menu if open
                 const navLinks = document.getElementById('nav-links');
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
@@ -386,7 +377,6 @@
             });
         });
 
-        // Hamburger menu functionality for mobile
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const navLinks = document.getElementById('nav-links');
 
@@ -394,13 +384,12 @@
             navLinks.classList.toggle('active');
         });
 
-        // Intersection Observer for section animations
         const sections = document.querySelectorAll('section');
 
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.2 // Trigger when 20% of the section is visible
+            threshold: 0.2
         };
 
         const sectionObserver = new IntersectionObserver((entries, observer) => {
@@ -408,20 +397,16 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.remove('section-hidden');
                     entry.target.classList.add('section-visible');
-                    // No need to unobserve if you want the animation to replay on subsequent scrolls
-                    // If you only want it to animate once, uncomment the line below:
                     // observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         sections.forEach(section => {
-            // Ensure the 'contact' section also gets the initial hidden class
             section.classList.add('section-hidden');
             sectionObserver.observe(section);
         });
 
-        // Specific animation for Hero section elements on load
         window.addEventListener('load', () => {
             const heroText = document.querySelector('.hero-text-hidden');
             const heroImage = document.querySelector('.hero-image-hidden');
@@ -435,13 +420,11 @@
                 heroImage.classList.add('hero-image-visible');
             }
 
-            // Start autotype effect after initial hero animation
             setTimeout(() => {
                 autotypeLoop('autotype-name', 'Chinmaya Samal', 100, 50, 1500); // Type speed, Delete speed, Delay between cycles
-            }, 1000); // Delay before starting autotype
+            }, 1000);
         });
 
-        // Autotype loop effect function (type, then delete, then repeat)
         function autotypeLoop(elementId, text, typeSpeed, deleteSpeed, delayBetweenCycles) {
             const element = document.getElementById(elementId);
             let i = 0;
@@ -452,39 +435,31 @@
                 element.textContent = currentText;
 
                 if (!isDeleting && i < text.length) {
-                    // Typing
                     i++;
                     setTimeout(type, typeSpeed);
                 } else if (isDeleting && i > 0) {
-                    // Deleting
                     i--;
                     setTimeout(type, deleteSpeed);
                 } else if (!isDeleting && i === text.length) {
-                    // Finished typing, start deleting after a delay
                     isDeleting = true;
                     setTimeout(type, delayBetweenCycles);
                 } else if (isDeleting && i === 0) {
-                    // Finished deleting, start typing again after a delay
                     isDeleting = false;
                     setTimeout(type, delayBetweenCycles);
                 }
             }
-            type(); // Start the typing animation
+            type();
         }
-
-        // Update current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Contact Form Submission with Formspree
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
 
         contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Prevent default form submission
+            e.preventDefault();
 
             const formData = new FormData(contactForm);
 
-            // Corrected Formspree endpoint with your provided ID
             const formspreeEndpoint = 'https://formspree.io/f/xdkzvkwe';
 
             try {
@@ -496,13 +471,12 @@
                     }
                 });
 
-                if (response.ok) { // Check if the response status is 2xx (e.g., 200 OK)
+                if (response.ok) {
                     formMessage.classList.remove('hidden', 'text-red-600');
                     formMessage.classList.add('text-green-600');
                     formMessage.textContent = 'Thank you for your message, Chinmaya! I will get back to you soon.';
-                    contactForm.reset(); // Clear the form on success
+                    contactForm.reset();
                 } else {
-                    // Handle errors (e.g., Formspree validation errors)
                     const errorData = await response.json();
                     let errorMessage = 'Oops! There was a problem submitting your form.';
                     if (errorData.errors && errorData.errors.length > 0) {
@@ -518,8 +492,6 @@
                 formMessage.classList.add('text-red-600');
                 formMessage.textContent = 'Network error. Please try again later.';
             }
-
-            // Hide message after 5 seconds
             setTimeout(() => {
                 formMessage.classList.add('hidden');
             }, 5000);
